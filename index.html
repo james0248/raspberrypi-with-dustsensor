@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <meta charset = 'utf-8'>
 <html>
-    <head><title>Webcam AI</title></head>
+    <head><title>미세먼지 측정기</title></head>
     <body>
-        <p id="PM1_0"> </p>
-        <p id="PM2_5"> </p>
-        <p id="PM10_0"> </p>
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <div id="grid-container">
+            <div class="title" id="title_1">PM 1.0 초미세먼지</div>
+            <div class="title" id="title_2">PM 2.5 초미세먼지</div>
+            <div class="title" id="title_3">PM 10.0 미세먼지</div>
+            <div class="container" id="PM1_0">0</div>
+            <div class="container" id="PM2_5">0</div>
+            <div class="container" id="PM10_0">0</div>
+        </div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script>
@@ -16,9 +22,9 @@
                     let PM1_0 = document.querySelector('#PM1_0');
                     let PM2_5 = document.querySelector('#PM2_5');
                     let PM10_0 = document.querySelector('#PM10_0');
-                    PM1_0.innerHTML = numbers[0];
-                    PM2_5.innerHTML = numbers[1];
-                    PM10_0.innerHTML = numbers[2];
+                    PM1_0.innerHTML = numbers[0]μg/m3;
+                    PM2_5.innerHTML = numbers[1]μg/m3;
+                    PM10_0.innerHTML = numbers[2]μg/m3;
                 });
             });
         </script>

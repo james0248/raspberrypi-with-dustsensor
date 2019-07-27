@@ -3,18 +3,18 @@
 <html>
     <head><title>Webcam AI</title></head>
     <body>
-        <p id="PM1.0"> </p>
-        <p id="PM2.5"> </p>
-        <p id="PM10.0"> </p>
+        <p id="PM1_0"> </p>
+        <p id="PM2_5"> </p>
+        <p id="PM10_0"> </p>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script>
             $(function() {
                 let socket = io();
                 socket.on("data", data => {
-                    let PM1_0 = document.querySelector('#PM1.0');
-                    let PM2_5 = document.querySelector('#PM2.5');
-                    let PM10_0 = document.querySelector('#PM10.0');
+                    let PM1_0 = document.querySelector('#PM1_0');
+                    let PM2_5 = document.querySelector('#PM2_5');
+                    let PM10_0 = document.querySelector('#PM10_0');
                     PM1_0.innerHTML = data[0];
                     PM2_5.innerHTML = data[1];
                     PM10_0.innerHTML = data[2];

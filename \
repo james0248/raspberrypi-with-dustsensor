@@ -12,13 +12,14 @@
             $(function() {
                 let socket = io();
                 socket.on("data", data => {
-                    let numbers = data.match(/\d+/g).map(Number);
+                    let a = data.split(",");
+                    cnsole.log(*a);
                     let PM1_0 = document.querySelector('#PM1_0');
                     let PM2_5 = document.querySelector('#PM2_5');
                     let PM10_0 = document.querySelector('#PM10_0');
-                    PM1_0.innerHTML = numbers[0];
-                    PM2_5.innerHTML = numbers[1];
-                    PM10_0.innerHTML = numbers[2];
+                    PM1_0.innerHTML = data[1];
+                    PM2_5.innerHTML = data[2];
+                    PM10_0.innerHTML = data[3];
                 });
             });
         </script>

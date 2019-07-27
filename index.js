@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 
 io.on("connection", socket => {
     console.log("io connected!");
-    process.on("dust", data => socket.emit("data", data));
+    process.on("dust", data => socket.emit("data", data.toString()));
 })
 
 server.listen(app.get('port'));

@@ -2,6 +2,7 @@
 
 import serial
 import sys
+import numpy as np
 from PMS7003 import PMS7003
 
 dust = PMS7003()
@@ -20,11 +21,13 @@ SERIAL_PORT = USB0
 ser = serial.Serial(SERIAL_PORT, Speed, timeout = 1)
 
 
-buffer = ser.read(1024)
+while(1):
+  buffer = ser.read(1024)
 
-if(dust.protocol_chk(buffer)):
-  data = dust.unpack_data(buffer)
-  dust.print_serial(buffer)
+  if(dust.protocol_chk(buffer)):
+    data = dust.unpack_data(buffer)
+    dustData = [data[dust.DUST_AIR_1_0], data[dust.DUST_AIR_2_5], data[dust.DUST_AIR_10_0]]
+    sys.stdout.buffer.write(np.asarray(dustData).tobytes())
 
 else:
   print ("data read Err")

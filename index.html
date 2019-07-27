@@ -12,12 +12,14 @@
             $(function() {
                 let socket = io();
                 socket.on("data", data => {
+                    console.log(data);
+                    console.log(typeof data);
                     let PM1_0 = document.querySelector('#PM1_0');
                     let PM2_5 = document.querySelector('#PM2_5');
                     let PM10_0 = document.querySelector('#PM10_0');
-                    PM1_0.innerHTML = data[0];
-                    PM2_5.innerHTML = data[1];
-                    PM10_0.innerHTML = data[2];
+                    PM1_0.innerHTML = data[1];
+                    PM2_5.innerHTML = data[2];
+                    PM10_0.innerHTML = data[3];
                 });
             });
         </script>

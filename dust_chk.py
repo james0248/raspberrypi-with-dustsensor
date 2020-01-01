@@ -19,7 +19,6 @@ SERIAL_PORT = USB0
 #serial setting
 ser = serial.Serial(SERIAL_PORT, Speed, timeout = 1)
 
-
 while(1):
   buffer = ser.read(1024)
 
@@ -29,7 +28,7 @@ while(1):
     print(dustData)
     sys.stdout.flush()
 
-else:
-  print ("data read Err")
+  else:
+    print ("data read Err")
 
 ser.close()

@@ -14,7 +14,6 @@ process.stdout.on("data", data => {
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html")
-
 })
 
 io.on("connection", socket => {
